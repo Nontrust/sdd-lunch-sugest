@@ -1,11 +1,11 @@
 ## 1. 프로젝트 초기 설정
 
 - [x] 1.1 Next.js 프로젝트 생성 (TypeScript, App Router)
-- [ ] 1.2 초기 데이터 파일 `data/restaurants.json` 생성 (샘플 데이터 포함)
+- [x] 1.2 초기 데이터 파일 `data/restaurants.json` 생성 (샘플 데이터 포함)
 
 ## 2. API Routes 구현
 
-- [ ] 2.1 데이터 읽기/쓰기 유틸리티 함수 작성 (`src/lib/data.ts`)
+- [x] 2.1 데이터 읽기/쓰기 유틸리티 함수 작성 (`app/lib/` 패키지별 분리)
 - [ ] 2.2 `GET /api/restaurants` - 전체 목록 조회 API
 - [ ] 2.3 `POST /api/restaurants` - 식당 추가 API
 - [ ] 2.4 `DELETE /api/restaurants/[id]` - 식당 삭제 API
