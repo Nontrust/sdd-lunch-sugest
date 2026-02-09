@@ -1,3 +1,4 @@
+import { ApiError } from "@/app/lib/api";
 import { readStorage, writeStorage } from "@/app/lib/storage";
 import type { Category, Restaurant } from "@/app/lib/types";
 
@@ -8,7 +9,7 @@ export const add = (name: string, category: Category): Restaurant => {
   const isDuplicate = data.restaurants.some((r) => r.name === name);
 
   if (isDuplicate) {
-    throw new Error("DUPLICATE");
+    throw ApiError.duplicate(name);
   }
 
   const restaurant: Restaurant = {

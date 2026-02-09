@@ -1,3 +1,4 @@
+import { ApiError } from "@/app/lib/api";
 import { readStorage, writeStorage } from "@/app/lib/storage";
 import type { Menu } from "@/app/lib/types";
 
@@ -6,7 +7,7 @@ export const add = (restaurantId: string, menuName: string): Menu => {
   const restaurant = data.restaurants.find((r) => r.id === restaurantId);
 
   if (!restaurant) {
-    throw new Error("NOT_FOUND");
+    throw ApiError.notFound("식당");
   }
 
   const menu: Menu = {
@@ -28,7 +29,7 @@ export const remove = (restaurantId: string, menuId: string): void => {
   const restaurant = data.restaurants.find((r) => r.id === restaurantId);
 
   if (!restaurant) {
-    throw new Error("NOT_FOUND");
+    throw ApiError.notFound("식당");
   }
 
   writeStorage({

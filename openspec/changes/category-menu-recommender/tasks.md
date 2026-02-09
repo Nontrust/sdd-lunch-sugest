@@ -6,12 +6,12 @@
 ## 2. API Routes 구현
 
 - [x] 2.1 데이터 읽기/쓰기 유틸리티 함수 작성 (`app/lib/` 패키지별 분리)
-- [ ] 2.2 `GET /api/restaurants` - 전체 목록 조회 API
-- [ ] 2.3 `POST /api/restaurants` - 식당 추가 API
-- [ ] 2.4 `DELETE /api/restaurants/[id]` - 식당 삭제 API
-- [ ] 2.5 `POST /api/restaurants/[id]/menus` - 메뉴 추가 API
-- [ ] 2.6 `DELETE /api/restaurants/[id]/menus/[menuId]` - 메뉴 삭제 API
-- [ ] 2.7 `GET /api/recommend?category=` - 랜덤 추천 API
+- [x] 2.2 `GET /api/restaurants` - 전체 목록 조회 API
+- [x] 2.3 `POST /api/restaurants` - 식당 추가 API
+- [x] 2.4 `DELETE /api/restaurants/[id]` - 식당 삭제 API
+- [x] 2.5 `POST /api/restaurants/[id]/menus` - 메뉴 추가 API
+- [x] 2.6 `DELETE /api/restaurants/[id]/menus/[menuId]` - 메뉴 삭제 API
+- [x] 2.7 `GET /api/recommend?category=` - 랜덤 추천 API
 
 ## 3. 추천 페이지 (메인 `/`)
 
