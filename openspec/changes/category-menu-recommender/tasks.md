@@ -1,6 +1,6 @@
 ## 1. 프로젝트 초기 설정
 
-- [ ] 1.1 Next.js 프로젝트 생성 (TypeScript, App Router)
+- [x] 1.1 Next.js 프로젝트 생성 (TypeScript, App Router)
 - [ ] 1.2 초기 데이터 파일 `data/restaurants.json` 생성 (샘플 데이터 포함)
 
 ## 2. API Routes 구현
