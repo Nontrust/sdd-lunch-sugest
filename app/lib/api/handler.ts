@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ApiError } from "./error";
+import { isApiError } from "./error";
 
 type RouteContext<T = Record<string, string>> = {
   params: Promise<T>;
@@ -16,7 +16,7 @@ export const withHandler =
     try {
       return await fn(request, context);
     } catch (e) {
-      if (e instanceof ApiError) {
+      if (isApiError(e)) {
         return NextResponse.json({ error: e.message }, { status: e.status });
       }
       return NextResponse.json(
