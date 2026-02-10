@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CATEGORIES, CATEGORY_LABELS } from "@/app/lib/types";
-import type { Category, Restaurant } from "@/app/lib/types";
+import { CATEGORIES, CATEGORY_LABELS } from "@/lib/types";
+import type { Category, Restaurant } from "@/lib/types";
 
 export default function ManagePage() {
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);

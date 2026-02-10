@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 import path from "path";
-import type { RestaurantData } from "@/app/lib/types";
+import type { RestaurantData } from "@/lib/types";
 
 const DATA_PATH = path.join(process.cwd(), "data", "restaurants.json");
 

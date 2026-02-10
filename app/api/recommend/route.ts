@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { ApiError, withHandler } from "@/app/lib/api";
-import * as recommend from "@/app/lib/recommend";
+import { apiError, withHandler } from "@/lib/api";
+import * as recommend from "@/lib/recommend";
 
 export const GET = withHandler(async (request) => {
   const { searchParams } = new URL(request.url);
@@ -8,7 +8,7 @@ export const GET = withHandler(async (request) => {
   const result = recommend.pick(category);
 
   if (!result) {
-    throw new ApiError(404, "해당 카테고리에 등록된 식당이 없습니다");
+    throw apiError(404, "해당 카테고리에 등록된 식당이 없습니다");
   }
 
   return NextResponse.json(result);

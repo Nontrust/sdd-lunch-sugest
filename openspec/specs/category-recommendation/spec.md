@@ -1,7 +1,10 @@
-## ADDED Requirements
+# category-recommendation Specification
 
+## Purpose
+TBD - created by archiving change category-menu-recommender. Update Purpose after archive.
+## Requirements
 ### Requirement: 카테고리 선택
-사용자는 추천 페이지에서 원하는 카테고리(한식/중식/일식/양식)를 선택하거나 "전체"를 선택할 수 있어야 한다.
+시스템은 추천 페이지에서 사용자가 원하는 카테고리(한식/중식/일식/양식)를 선택하거나 "전체"를 선택할 수 있도록 해야 한다(SHALL).
 
 #### Scenario: 카테고리 선택
 - **WHEN** 사용자가 추천 페이지에서 "한식" 카테고리를 선택
@@ -12,7 +15,7 @@
 - **THEN** 모든 카테고리가 추천 대상에 포함된다
 
 ### Requirement: 랜덤 추천
-사용자가 추천 버튼을 클릭하면 선택된 카테고리에서 랜덤으로 식당과 메뉴를 추천해야 한다.
+시스템은 사용자가 추천 버튼을 클릭하면 선택된 카테고리에서 랜덤으로 식당과 메뉴를 추천해야 한다(SHALL).
 
 #### Scenario: 카테고리별 랜덤 추천
 - **WHEN** 사용자가 "한식"을 선택하고 추천 버튼을 클릭
@@ -23,8 +26,9 @@
 - **THEN** "해당 카테고리에 등록된 식당이 없습니다" 메시지가 표시된다
 
 ### Requirement: 추천 결과 표시
-추천 결과는 상호명과 메뉴명을 함께 보여줘야 한다.
+시스템은 추천 결과로 상호명과 메뉴명을 함께 카드 형태로 표시해야 한다(SHALL).
 
 #### Scenario: 추천 결과 표시
 - **WHEN** 랜덤 추천이 완료되면
 - **THEN** 상호명, 카테고리, 메뉴명이 카드 형태로 표시된다
+

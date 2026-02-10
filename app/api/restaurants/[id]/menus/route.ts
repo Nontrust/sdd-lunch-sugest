@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { withHandler } from "@/app/lib/api";
-import * as menu from "@/app/lib/menu";
+import { withHandler } from "@/lib/api";
+import * as menu from "@/lib/menu";
 
 export const POST = withHandler<{ id: string }>(async (request, context) => {
   const { id } = await context.params;

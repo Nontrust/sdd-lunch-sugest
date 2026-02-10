@@ -1,5 +1,5 @@
-import { readStorage } from "@/app/lib/storage";
-import type { Menu, Restaurant } from "@/app/lib/types";
+import { readStorage } from "@/lib/storage";
+import type { Menu, Restaurant } from "@/lib/types";
 
 export interface RecommendResult {
   readonly restaurant: Restaurant;

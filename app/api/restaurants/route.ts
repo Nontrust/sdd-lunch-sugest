@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { withHandler } from "@/app/lib/api";
-import * as restaurant from "@/app/lib/restaurant";
-import type { Category } from "@/app/lib/types";
+import { withHandler } from "@/lib/api";
+import * as restaurant from "@/lib/restaurant";
+import type { Category } from "@/lib/types";
 
 export const GET = withHandler(async () =>
   NextResponse.json(restaurant.getAll())

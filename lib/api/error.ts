@@ -10,9 +10,9 @@ const isApiError = (error: unknown): error is ApiError =>
   "message" in error;
 
 export const apiError = (status: number, message: string): ApiError & Error => {
-  const error = new Error(message) as Error & ApiError;
-  (error as Record<string, unknown>).status = status;
-  return error;
+  const error = new Error(message);
+  Object.assign(error, { status });
+  return error as Error & ApiError;
 };
 
 export const duplicate = (name: string) =>

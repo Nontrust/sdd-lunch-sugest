@@ -1,13 +1,13 @@
-import { ApiError } from "@/app/lib/api";
-import { readStorage, writeStorage } from "@/app/lib/storage";
-import type { Menu } from "@/app/lib/types";
+import { notFound } from "@/lib/api";
+import { readStorage, writeStorage } from "@/lib/storage";
+import type { Menu } from "@/lib/types";
 
 export const add = (restaurantId: string, menuName: string): Menu => {
   const data = readStorage();
   const restaurant = data.restaurants.find((r) => r.id === restaurantId);
 
   if (!restaurant) {
-    throw ApiError.notFound("식당");
+    throw notFound("식당");
   }
 
   const menu: Menu = {
@@ -29,7 +29,7 @@ export const remove = (restaurantId: string, menuId: string): void => {
   const restaurant = data.restaurants.find((r) => r.id === restaurantId);
 
   if (!restaurant) {
-    throw ApiError.notFound("식당");
+    throw notFound("식당");
   }
 
   writeStorage({

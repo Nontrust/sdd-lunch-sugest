@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { CATEGORIES, CATEGORY_LABELS } from "@/app/lib/types";
-import type { RecommendResult } from "@/app/lib/recommend";
+import { CATEGORIES, CATEGORY_LABELS } from "@/lib/types";
+import type { RecommendResult } from "@/lib/recommend";
 
 export default function Home() {
   const [selected, setSelected] = useState<string>("all");
