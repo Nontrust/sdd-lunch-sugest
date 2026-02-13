@@ -30,6 +30,9 @@ export default function RootLayout({
           <Link href="/" className="text-sm font-semibold text-gray-400 hover:text-gray-900 transition-colors">
             추천
           </Link>
+          <Link href="/history" className="text-sm font-semibold text-gray-400 hover:text-gray-900 transition-colors">
+            기록
+          </Link>
           <Link href="/manage" className="text-sm font-semibold text-gray-400 hover:text-gray-900 transition-colors">
             관리
           </Link>

@@ -70,6 +70,11 @@ export default function Home() {
 
       {result && (
         <div className="p-6 bg-gray-50 border border-gray-200 rounded-xl text-center">
+          {result.isFallback && (
+            <p className="text-amber-600 text-xs font-medium mb-3">
+              최근 방문한 식당이지만 추천합니다
+            </p>
+          )}
           <span className="inline-block px-3 py-1 bg-blue-600 text-white text-xs font-semibold rounded-full mb-3">
             {CATEGORY_LABELS[result.restaurant.category]}
           </span>
