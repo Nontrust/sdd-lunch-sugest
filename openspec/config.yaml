@@ -8,8 +8,9 @@ context: |
 
   아키텍처:
     - API 레이어: app/api/** (Next.js Route Handlers)
-    - 서비스 레이어: lib/*/service.ts (비즈니스 로직)
-    - 데이터 레이어: lib/storage/ (JSON 파일 읽기/쓰기)
+    - 서비스 레이어: lib/*/service.ts (팩토리 함수 + 인터페이스 기반 비즈니스 로직)
+    - 리포지토리 레이어: lib/storage/types.ts (RestaurantRepository, HistoryRepository 인터페이스)
+    - 데이터 레이어: lib/storage/file-storage.ts (파일 기반 리포지토리 구현)
     - UI 레이어: app/**/page.tsx (React 클라이언트 컴포넌트)
     - 공통 에러 처리: lib/api/handler.ts (withHandler 래퍼)
 
@@ -18,6 +19,7 @@ context: |
     - restaurant-management: 식당/메뉴 CRUD 관리
     - recommendation-history: 추천 히스토리 자동 저장 및 조회
     - smart-recommend: 중복 방지 스마트 추천 + 폴백
+    - service-layer-interface: 서비스 레이어 인터페이스 분리 + 팩토리 함수 패턴 + recommend 오케스트레이션
 
   프로젝트 규칙:
     - 2개 피처 완료마다 리팩토링 사이클 실행
