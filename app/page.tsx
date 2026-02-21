@@ -2,30 +2,16 @@
 
 import { useState } from "react";
 import { CATEGORIES, CATEGORY_LABELS } from "@/lib/types";
+import { useApi } from "@/lib/hooks/useApi";
+import { API } from "@/lib/api/routes";
 import type { RecommendResult } from "@/lib/recommend";
 
 export default function Home() {
   const [selected, setSelected] = useState<string>("all");
-  const [result, setResult] = useState<RecommendResult | null>(null);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const { data: result, error, loading, fetch: fetchRecommend } = useApi<RecommendResult>();
 
-  const handleRecommend = async () => {
-    setLoading(true);
-    setError("");
-    setResult(null);
-
-    const res = await fetch(`/api/recommend?category=${selected}`);
-
-    if (!res.ok) {
-      const data = await res.json();
-      setError(data.error);
-      setLoading(false);
-      return;
-    }
-
-    setResult(await res.json());
-    setLoading(false);
+  const handleRecommend = () => {
+    fetchRecommend(`${API.RECOMMEND}?category=${selected}`);
   };
 
   return (

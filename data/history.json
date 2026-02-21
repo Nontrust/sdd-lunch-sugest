@@ -1,3 +1,84 @@
 {
-  "records": []
+  "records": [
+    {
+      "id": "1770968463034",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "일담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:03.034Z"
+    },
+    {
+      "id": "1770968463495",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "일담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:03.495Z"
+    },
+    {
+      "id": "1770968463879",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "이담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:03.879Z"
+    },
+    {
+      "id": "1770968464248",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "이담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:04.248Z"
+    },
+    {
+      "id": "1770968464678",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "일담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:04.678Z"
+    },
+    {
+      "id": "1770968464969",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "일담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:04.969Z"
+    },
+    {
+      "id": "1770968465331",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "이담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:05.331Z"
+    },
+    {
+      "id": "1770968465497",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "이담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:05.497Z"
+    },
+    {
+      "id": "1770968465655",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "이담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-13T07:41:05.655Z"
+    },
+    {
+      "id": "1771686715727",
+      "restaurantId": "1770646026074",
+      "restaurantName": "스시이담",
+      "menuName": "이담",
+      "category": "japanese",
+      "recommendedAt": "2026-02-21T15:11:55.727Z"
+    }
+  ]
 }

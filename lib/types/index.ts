@@ -27,6 +27,11 @@ export interface HistoryData {
   readonly records: HistoryRecord[];
 }
 
+export interface GroupedHistory {
+  readonly date: string;
+  readonly records: HistoryRecord[];
+}
+
 export const CATEGORIES = ["korean", "chinese", "japanese", "western"] as const;
 
 export type Category = (typeof CATEGORIES)[number];

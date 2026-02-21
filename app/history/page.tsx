@@ -1,49 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { CATEGORY_LABELS } from "@/lib/types";
-import type { Category } from "@/lib/types";
-
-interface HistoryRecord {
-  id: string;
-  restaurantName: string;
-  menuName: string;
-  category: Category;
-  recommendedAt: string;
-}
-
-interface GroupedHistory {
-  date: string;
-  records: HistoryRecord[];
-}
-
-const formatDate = (dateStr: string): string => {
-  const date = new Date(dateStr);
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-  const weekdays = ["일", "월", "화", "수", "목", "금", "토"];
-  const weekday = weekdays[date.getDay()];
-  return `${month}월 ${day}일 (${weekday})`;
-};
+import type { GroupedHistory } from "@/lib/types";
+import { useApi } from "@/lib/hooks/useApi";
+import { API } from "@/lib/api/routes";
+import { formatDate } from "@/lib/utils/date";
 
 export default function HistoryPage() {
-  const [groups, setGroups] = useState<GroupedHistory[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { data: groups, loading, fetch: fetchHistory } = useApi<GroupedHistory[]>();
 
   useEffect(() => {
-    fetch("/api/history")
-      .then((res) => res.json())
-      .then((data) => {
-        setGroups(data);
-        setLoading(false);
-      });
-  }, []);
+    fetchHistory(API.HISTORY);
+  }, [fetchHistory]);
 
   if (loading) {
     return <p className="text-gray-400 text-sm">불러오는 중...</p>;
   }
 
-  if (groups.length === 0) {
+  if (!groups || groups.length === 0) {
     return (
       <div className="flex flex-col gap-6">
         <h1 className="text-2xl font-bold">추천 기록</h1>
@@ -71,7 +46,7 @@ export default function HistoryPage() {
                   {CATEGORY_LABELS[record.category]}
                 </span>
                 <span className="font-medium">{record.restaurantName}</span>
-                <span className="text-gray-400">·</span>
+                <span className="text-gray-400">&middot;</span>
                 <span className="text-gray-500">{record.menuName}</span>
               </div>
             ))}
