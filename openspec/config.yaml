@@ -1,20 +1,40 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  프로젝트: 점심 메뉴 추천 웹앱 (lunch-suggest)
+  기술 스택: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4
+  데이터 저장: 파일 기반 JSON (data/restaurants.json, data/history.json)
+  언어: 한국어 (에러 메시지, UI 텍스트, 문서 모두 한국어)
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  아키텍처:
+    - API 레이어: app/api/** (Next.js Route Handlers)
+    - 서비스 레이어: lib/*/service.ts (비즈니스 로직)
+    - 데이터 레이어: lib/storage/ (JSON 파일 읽기/쓰기)
+    - UI 레이어: app/**/page.tsx (React 클라이언트 컴포넌트)
+    - 공통 에러 처리: lib/api/handler.ts (withHandler 래퍼)
+
+  기존 스펙 (openspec/specs/):
+    - category-recommendation: 카테고리별 식당/메뉴 추천
+    - restaurant-management: 식당/메뉴 CRUD 관리
+    - recommendation-history: 추천 히스토리 자동 저장 및 조회
+    - smart-recommend: 중복 방지 스마트 추천 + 폴백
+
+  프로젝트 규칙:
+    - 2개 피처 완료마다 리팩토링 사이클 실행
+
+rules:
+  proposal:
+    - 한국어로 작성
+    - Why 섹션에 이전 피처 이름을 명시하여 리팩토링 사이클 추적 가능하게 할 것
+    - 간결하게 1-2 페이지 이내
+  specs:
+    - 요구사항과 시나리오를 한국어로 작성
+    - SHALL/MUST 키워드는 영문 그대로 사용
+    - 시나리오는 반드시 WHEN/THEN 형식
+  design:
+    - 결정(Decisions) 섹션에 반드시 대안과 선택 이유 포함
+    - 과도한 추상화 경계 — 현재 필요한 최소한만 설계
+  tasks:
+    - 태스크 그룹은 의존성 순서로 정렬
+    - 마지막 그룹은 반드시 검증 (빌드 + 페이지별 동작 확인)
+    - 각 태스크는 한 세션에 완료 가능한 크기로 분할
