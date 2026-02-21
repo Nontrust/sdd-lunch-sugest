@@ -1,22 +1,15 @@
-import { readFileSync, writeFileSync, existsSync } from "fs";
-import path from "path";
-import type { RestaurantData, HistoryData } from "@/lib/types";
+export type { RestaurantRepository, HistoryRepository } from "./types";
+export {
+  createFileRestaurantRepository,
+  createFileHistoryRepository,
+} from "./file-storage";
 
-const DATA_PATH = path.join(process.cwd(), "data", "restaurants.json");
-const HISTORY_PATH = path.join(process.cwd(), "data", "history.json");
+import { createFileRestaurantRepository, createFileHistoryRepository } from "./file-storage";
 
-export const readStorage = (): RestaurantData =>
-  JSON.parse(readFileSync(DATA_PATH, "utf-8"));
+const defaultRestaurantRepo = createFileRestaurantRepository();
+const defaultHistoryRepo = createFileHistoryRepository();
 
-export const writeStorage = (data: RestaurantData): void =>
-  writeFileSync(DATA_PATH, JSON.stringify(data, null, 2), "utf-8");
-
-export const readHistory = (): HistoryData => {
-  if (!existsSync(HISTORY_PATH)) {
-    return { records: [] };
-  }
-  return JSON.parse(readFileSync(HISTORY_PATH, "utf-8"));
-};
-
-export const writeHistory = (data: HistoryData): void =>
-  writeFileSync(HISTORY_PATH, JSON.stringify(data, null, 2), "utf-8");
+export const readStorage = defaultRestaurantRepo.read;
+export const writeStorage = defaultRestaurantRepo.write;
+export const readHistory = defaultHistoryRepo.read;
+export const writeHistory = defaultHistoryRepo.write;

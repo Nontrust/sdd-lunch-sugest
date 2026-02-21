@@ -1,35 +1,38 @@
 import { duplicate } from "@/lib/api";
-import { readStorage, writeStorage } from "@/lib/storage";
 import type { Category, Restaurant } from "@/lib/types";
+import type { RestaurantRepository } from "@/lib/storage";
+import type { RestaurantService } from "./types";
 
-export const getAll = (): Restaurant[] => readStorage().restaurants;
+export const createRestaurantService = (repo: RestaurantRepository): RestaurantService => ({
+  getAll: (): Restaurant[] => repo.read().restaurants,
 
-export const add = (name: string, category: Category): Restaurant => {
-  const data = readStorage();
-  const isDuplicate = data.restaurants.some((r) => r.name === name);
+  add: (name: string, category: Category): Restaurant => {
+    const data = repo.read();
+    const isDuplicate = data.restaurants.some((r) => r.name === name);
 
-  if (isDuplicate) {
-    throw duplicate(name);
-  }
+    if (isDuplicate) {
+      throw duplicate(name);
+    }
 
-  const restaurant: Restaurant = {
-    id: Date.now().toString(),
-    name,
-    category,
-    menus: [],
-  };
+    const restaurant: Restaurant = {
+      id: Date.now().toString(),
+      name,
+      category,
+      menus: [],
+    };
 
-  writeStorage({
-    restaurants: [...data.restaurants, restaurant],
-  });
+    repo.write({
+      restaurants: [...data.restaurants, restaurant],
+    });
 
-  return restaurant;
-};
+    return restaurant;
+  },
 
-export const remove = (id: string): void => {
-  const data = readStorage();
+  remove: (id: string): void => {
+    const data = repo.read();
 
-  writeStorage({
-    restaurants: data.restaurants.filter((r) => r.id !== id),
-  });
-};
+    repo.write({
+      restaurants: data.restaurants.filter((r) => r.id !== id),
+    });
+  },
+});
