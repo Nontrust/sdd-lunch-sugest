@@ -20,9 +20,17 @@ context: |
     - recommendation-history: 추천 히스토리 자동 저장 및 조회
     - smart-recommend: 중복 방지 스마트 추천 + 폴백
     - service-layer-interface: 서비스 레이어 인터페이스 분리 + 팩토리 함수 패턴 + recommend 오케스트레이션
+    - refactoring-cycle: 2개 피처 완료마다 리팩토링 사이클 트리거 규칙
+    - architecture: 레이어 구조, 의존 방향, 서비스 패턴, 에러/검증/프론트엔드 컨벤션
 
   프로젝트 규칙:
-    - 2개 피처 완료마다 리팩토링 사이클 실행
+    - 2개 피처 완료마다 리팩토링 사이클 실행 (상세: openspec/specs/refactoring-cycle/)
+    - 리팩토링 사이클마다 아키텍처 리뷰 필수 수행 — 아키텍처는 고정이 아닌 진화 대상
+    - 의존 방향: UI → API → 서비스 → 데이터 (단방향만 허용)
+    - 서비스 패턴: 팩토리 함수 + 리포지토리 DI (클래스 사용 금지)
+    - 에러 메시지: 한국어, apiError/duplicate/notFound 팩토리 사용
+    - 입력 검증: API 라우트에서 수행, 서비스는 유효한 입력 전제
+    - 아키텍처 상세: openspec/specs/architecture/
 
 rules:
   proposal:
